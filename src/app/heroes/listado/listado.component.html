@@ -1,0 +1,23 @@
+<p>Listado de heroes</p>
+
+<!-- directiva ngIf -- condicionales if angular -->
+<div *ngIf="heroeBorrado.length > 0; else noBorrado">
+    <h3>Heroe Borrado</h3>
+    <span>{{ heroeBorrado }}</span>
+</div>
+<!-- el anterior div llama a esta plantilla por la variable local de angular -->
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+<ul ng>
+    <!--{{heroes[0]}}  de esta forma se accede a una posicion de array-->
+    <!-- Pero con esta directiva recorremos todos los valores-->
+    <li *ngFor="let heroe of heroes; let i = index"> <!-- para obtener los indices-->
+        {{i + 1}}. {{heroe}}
+    </li>
+</ul>
+
+<button (click)="borrarHeroe()">
+    Borrar Heroe
+</button>
